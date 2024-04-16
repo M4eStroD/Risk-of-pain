@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
-    [SerializeField] protected Transform _container;
+    [SerializeField] protected Transform Container;
 
     [SerializeField] private float _timeSpawn;
 

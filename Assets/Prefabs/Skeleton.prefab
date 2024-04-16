@@ -185,10 +185,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ad950b23fa50564da7d2cf5c5f38a90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _rigidbody: {fileID: 1882728096042220666}
+  Rigidbody: {fileID: 1882728096042220666}
   _speed: 1
-  _distanceOffset: 1
+  _distanceOffset: 1.5
   _route: []
+  _currentIndexTarget: 0
+  _currentTarget: {x: 0, y: 0, z: 0}
+  _myPosition: {x: 0, y: 0, z: 0}
 --- !u!114 &8535212066869405162
 MonoBehaviour:
   m_ObjectHideFlags: 0

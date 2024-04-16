@@ -6,11 +6,6 @@ public class WalletView : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _amountView;
     [SerializeField] private Wallet _wallet;
 
-    public void DisplayAmount()
-    {
-        _amountView.text = _wallet.Money.ToString();
-    }
-
     private void OnEnable()
     {
         _wallet.AmountChanged += DisplayAmount;
@@ -19,5 +14,10 @@ public class WalletView : MonoBehaviour
     private void OnDisable()
     {
         _wallet.AmountChanged -= DisplayAmount;
+    }
+
+    public void DisplayAmount()
+    {
+        _amountView.text = _wallet.Money.ToString();
     }
 }

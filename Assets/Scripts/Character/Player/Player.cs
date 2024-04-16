@@ -6,7 +6,10 @@ public class Player : Character
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.TryGetComponent<Coin>(out Coin coin))
+        if (collision.TryGetComponent(out Coin coin))
+        {
             _wallet.AddMoney(coin.CountCoin);
+            coin.Collect();
+        }
     }
 }

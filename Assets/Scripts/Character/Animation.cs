@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Animation : MonoBehaviour
 {
-    [SerializeField] private Movement _movement;
+    [SerializeField] private Mover _movement;
 
     [SerializeField] private Character _character;
     [SerializeField] private Animator _animator;
@@ -19,17 +19,17 @@ public class Animation : MonoBehaviour
     private void SetAnimationJump()
     {
         if (_movement.SurfaceType == SurfaceType.Ground)
-            _animator.SetBool("IsJump", false);
+            _animator.SetBool(AnimatorData.Params.IsJump, false);
         else
-            _animator.SetBool("IsJump", true);
+            _animator.SetBool(AnimatorData.Params.IsJump, true);
     }
 
     private void SetAnimationRun()
     {
         if (_movement.IsStanding)
-            _animator.SetBool("IsMove", false);
+            _animator.SetBool(AnimatorData.Params.IsMove, false);
         else
-            _animator.SetBool("IsMove", true);
+            _animator.SetBool(AnimatorData.Params.IsMove, true);
     }
 
     private void RotateToMove()

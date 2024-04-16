@@ -2,16 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyMovement : Movement
+public class EnemyMovement : Mover
 {
     [SerializeField] private float _speed = 1f;
     [SerializeField] private float _distanceOffset = 0.2f;
 
     [SerializeField] private List<Transform> _route = new List<Transform>();
 
-    private int _currentIndexTarget = 0;
+    [SerializeField] private int _currentIndexTarget = 0;
 
-    private Vector3 _currentTarget;
+    [SerializeField] private Vector3 _currentTarget;
+    [SerializeField] private Vector3 _myPosition; 
 
     public void SetRoute(List<Transform> route)
     {
@@ -25,6 +26,8 @@ public class EnemyMovement : Movement
     {
         while (true)
         {
+            _myPosition = transform.position;
+
             if (GetDistance() <= _distanceOffset)
                 ChangeDirection();
             else
@@ -38,23 +41,20 @@ public class EnemyMovement : Movement
     {
         Vector3 direction = transform.right * _speed;
 
-        _rigidbody.velocity = new Vector3(direction.x, _rigidbody.velocity.y);
+        Rigidbody.velocity = new Vector3(direction.x, Rigidbody.velocity.y);
     }
 
     private void ChangeDirection()
     {
-        if (_currentIndexTarget >= _route.Count)
-            _currentIndexTarget = 0;
+        _currentIndexTarget = ++_currentIndexTarget % _route.Count;
 
         _currentTarget = _route[_currentIndexTarget].position;
 
-        DirectionMove = transform.position.x - _currentTarget.x > 0 ? 0 : 1;
-
-        _currentIndexTarget++;
+        DirectionMove = transform.position.x > _currentTarget.x ? 0 : 1;
     }
 
     private float GetDistance()
     {
-        return Vector3.Distance(_currentTarget, transform.position);
+        return Vector3.Distance(_myPosition, _currentTarget);
     }
 }

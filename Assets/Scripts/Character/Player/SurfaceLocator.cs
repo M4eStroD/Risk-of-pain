@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class SurfaceUnderPlayer : MonoBehaviour
+public class SurfaceLocator : MonoBehaviour
 {
     [SerializeField] private Transform _checkPoint;
     [SerializeField] private float _raycastLenght;

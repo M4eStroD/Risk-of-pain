@@ -9,14 +9,14 @@ public class CameraFollower : MonoBehaviour
 
     private Vector3 _position;
 
-    private void Start()
-    {
-        GetCoordinates();
-    }
-
     private void Awake()
     {
         transform.position = _position;
+    }
+
+    private void Start()
+    {
+        GetCoordinates();
     }
 
     private void LateUpdate()

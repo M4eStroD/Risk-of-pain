@@ -185,7 +185,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ad950b23fa50564da7d2cf5c5f38a90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _rigidbody: {fileID: 6853635323036649404}
+  Rigidbody: {fileID: 6853635323036649404}
   _speed: 1
   _distanceOffset: 1
   _route: []

@@ -1,14 +1,16 @@
+using System;
 using UnityEngine;
 
 public class Coin : MonoBehaviour
 {
     [SerializeField] private int _cointCoin = 1;
 
+    public event Action PickUp;
+
     public int CountCoin => _cointCoin;
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    public void Collect()
     {
-        if (collision.TryGetComponent<Player>(out Player player))
-            Destroy(gameObject);
+        PickUp?.Invoke();
     }
 }

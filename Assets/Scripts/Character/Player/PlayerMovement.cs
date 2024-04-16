@@ -1,17 +1,19 @@
 using UnityEngine;
 
-public class PlayerMovement : Movement
+public class PlayerMovement : Mover
 {
     [SerializeField] private float _speed = 1f;
     [SerializeField] private float _forceJump = 15f;
 
-    [SerializeField] private SurfaceUnderPlayer _currentSurface;
+    [SerializeField] private SurfaceLocator _currentSurface;
+
+    private string _directionInSpace = "Horizontal";
 
     private void FixedUpdate()
     {
         SurfaceType = _currentSurface.CurrentSurface;
 
-        if (Input.GetButton("Horizontal"))
+        if (Input.GetButton(_directionInSpace))
             Run();
     }
 
@@ -23,16 +25,17 @@ public class PlayerMovement : Movement
 
     private void Run()
     {
-        DirectionMove = Input.GetAxisRaw("Horizontal");
+        Debug.Log(1);
+        DirectionMove = Input.GetAxisRaw(_directionInSpace);
 
         Vector3 direction = transform.right * _speed;
 
-        _rigidbody.velocity = new Vector3(direction.x, _rigidbody.velocity.y);
+        Rigidbody.velocity = new Vector3(direction.x, Rigidbody.velocity.y);
     }
 
     private void Jump()
     {
         if (SurfaceType == SurfaceType.Ground)
-            _rigidbody.AddForce(transform.up * _forceJump, ForceMode2D.Impulse);
+            Rigidbody.AddForce(transform.up * _forceJump, ForceMode2D.Impulse);
     }
 }

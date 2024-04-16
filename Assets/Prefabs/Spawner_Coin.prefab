@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1cb5b6e70805144f97f2a29b9a142ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _container: {fileID: 4057873825481086299}
+  Container: {fileID: 4057873825481086299}
   _timeSpawn: 10
   _coin: {fileID: 543790019048341331, guid: a110e428148c53d4f8b3e7db44f6aa09, type: 3}
 --- !u!1 &7779026030848794612

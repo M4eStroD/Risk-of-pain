@@ -9,7 +9,7 @@ public class SpawnerEnemy : Spawner
 
     protected override void Spawn()
     {
-        Enemy enemy = Instantiate(_enemy, transform.position, Quaternion.identity, _container);
+        Enemy enemy = Instantiate(_enemy, transform.position, Quaternion.identity, Container);
         enemy.Init(_pointsPatrol);
     }
 }

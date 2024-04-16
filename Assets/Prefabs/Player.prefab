@@ -218,10 +218,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c13ab85c361ccfa48b62626901ebe86c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Rigidbody: {fileID: 4275609656157405672}
   _speed: 25
   _forceJump: 250
-  _physicFactor: 200
-  _rigidbody: {fileID: 4275609656157405672}
   _currentSurface: {fileID: 8758940135638564113}
 --- !u!114 &8758940135638564113
 MonoBehaviour:
@@ -252,6 +251,7 @@ MonoBehaviour:
   _movement: {fileID: 887594270017051553}
   _character: {fileID: 2099174535357674551}
   _animator: {fileID: 6436246085958768693}
+  _rotate: {x: 0, y: 0, z: 0}
 --- !u!114 &2099174535357674551
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -264,3 +264,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 333618180520b9944874053ebf514020, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _wallet: {fileID: 0}
