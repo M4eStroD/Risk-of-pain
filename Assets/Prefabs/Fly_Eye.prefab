@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 6853635323036649404}
   - component: {fileID: 5989734162845644976}
   - component: {fileID: 4921795334853657429}
-  - component: {fileID: 1880391998180763562}
   - component: {fileID: 7145627625320534618}
   - component: {fileID: 8854353997674244953}
+  - component: {fileID: 1880391998180763562}
   m_Layer: 0
   m_Name: Fly_Eye
   m_TagString: Untagged
@@ -173,20 +173,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &1880391998180763562
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1148717944096183220}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fadbbc5a57b345944aefc8c6a6c91537, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _character: {fileID: 7145627625320534618}
-  _rotate: {x: 0, y: 180, z: 0}
 --- !u!114 &7145627625320534618
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -216,3 +202,17 @@ MonoBehaviour:
   Rigidbody: {fileID: 6853635323036649404}
   _speed: 1
   _route: []
+--- !u!114 &1880391998180763562
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1148717944096183220}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fadbbc5a57b345944aefc8c6a6c91537, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _character: {fileID: 7145627625320534618}
+  _rotate: {x: 0, y: 180, z: 0}
