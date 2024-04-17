@@ -2,30 +2,18 @@ using UnityEngine;
 
 public class SurfaceLocator : MonoBehaviour
 {
-    [SerializeField] private Transform _checkPoint;
-    [SerializeField] private float _raycastLenght;
-
     public SurfaceType CurrentSurface { get; private set; }
 
-    private void FixedUpdate()
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        RaycastHit2D hitInfo = Physics2D.Raycast(_checkPoint.position, Vector2.down, _raycastLenght);
+        if (collision.TryGetComponent(out Surface surface))
+            CurrentSurface = surface.Type;
+    }
 
-        if (hitInfo == false)
-        {
-            CurrentSurface = SurfaceType.None;
-            return;
-        }
-
-        if (hitInfo.transform.TryGetComponent(out Surface surface) == false)
-        {
-            CurrentSurface = SurfaceType.None;
-            return;
-        }
-
-        if (surface.Type == CurrentSurface)
-            return;
-
-        CurrentSurface = surface.Type;
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.TryGetComponent(out Surface surface))
+            if (surface.Type == SurfaceType.Ground)
+                CurrentSurface = SurfaceType.None;
     }
 }

@@ -14,6 +14,6 @@ public class EnemyMover : Mover
 
         _totalSpeed = _speed * SpeedPhysicsFactor * Time.fixedDeltaTime;
 
-        Rigidbody.velocity = _totalSpeed * direction;
+        Rigidbody.velocity = new Vector3(direction.x * _totalSpeed, Rigidbody.velocity.y);
     }
 }

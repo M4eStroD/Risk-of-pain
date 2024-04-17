@@ -15,6 +15,8 @@ public class PlayerMover : Mover
 
         if (Input.GetButton(_directionInSpace))
             Run();
+        else if (SurfaceType != SurfaceType.None)
+            StopSliding();
     }
 
     private void Update()
@@ -25,7 +27,6 @@ public class PlayerMover : Mover
 
     private void Run()
     {
-        Debug.Log(1);
         DirectionMove = Input.GetAxisRaw(_directionInSpace);
 
         Vector3 direction = transform.right * _speed;
@@ -35,7 +36,12 @@ public class PlayerMover : Mover
 
     private void Jump()
     {
-        if (SurfaceType == SurfaceType.Ground)
+        if (SurfaceType != SurfaceType.None)
             Rigidbody.AddForce(transform.up * _forceJump, ForceMode2D.Impulse);
+    }
+
+    private void StopSliding()
+    {
+        Rigidbody.velocity = new Vector3(0, Rigidbody.velocity.y);
     }
 }
