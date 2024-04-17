@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class PlayerMovement : Mover
+public class PlayerMover : Mover
 {
     [SerializeField] private float _speed = 1f;
     [SerializeField] private float _forceJump = 15f;

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1882728096042220666}
   - component: {fileID: 2706877229344561243}
   - component: {fileID: 380669959137335344}
-  - component: {fileID: 8014227535290832930}
+  - component: {fileID: 6109646273203379583}
   - component: {fileID: 8535212066869405162}
   - component: {fileID: -2638969059936770019}
   m_Layer: 0
@@ -173,7 +173,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &8014227535290832930
+--- !u!114 &6109646273203379583
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -182,16 +182,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 4493148842825027520}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5ad950b23fa50564da7d2cf5c5f38a90, type: 3}
+  m_Script: {fileID: 11500000, guid: f8660c2ae0e1cb247af6181d9d7d779a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Rigidbody: {fileID: 1882728096042220666}
   _speed: 1
-  _distanceOffset: 1.5
   _route: []
-  _currentIndexTarget: 0
-  _currentTarget: {x: 0, y: 0, z: 0}
-  _myPosition: {x: 0, y: 0, z: 0}
 --- !u!114 &8535212066869405162
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -204,9 +200,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fadbbc5a57b345944aefc8c6a6c91537, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _movement: {fileID: 8014227535290832930}
   _character: {fileID: -2638969059936770019}
-  _animator: {fileID: 380669959137335344}
   _rotate: {x: 0, y: 180, z: 0}
 --- !u!114 &-2638969059936770019
 MonoBehaviour:
@@ -220,4 +214,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 816aa397ad324f14c94ba278d21ab6b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _movement: {fileID: 8014227535290832930}
+  _mover: {fileID: 6109646273203379583}
+  _enemyMover: {fileID: 6109646273203379583}
