@@ -7,21 +7,39 @@ public class EnemyMoverAI : EnemyMover
 
     [SerializeField] private List<Transform> _route = new List<Transform>();
 
-    private int _currentIndexTarget = 0;
+    private Enemy _enemy;
+
     private Vector3 _currentTarget;
+    private int _currentIndexTarget;
+
 
     private void FixedUpdate()
     {
         if (_currentTarget == null)
             return;
 
-        Move();
+        if (_enemy.IsAttack == false)
+            Move();
+        else
+            Pursue();
     }
 
-    public void SetRoute(List<Transform> route)
+    public void Init(List<Transform> route, Enemy enemy)
     {
         _route = route;
+        _enemy = enemy;
+
         ChangeDirection();
+    }
+
+    private void Pursue()
+    {
+        _currentTarget = _enemy.Target.transform.position;
+
+        SetDirectionToRotate();
+
+        if (GetDistance() >= _enemy.DistanceAttack)
+            MoveTowards(_currentTarget);
     }
 
     private void Move()
@@ -38,6 +56,11 @@ public class EnemyMoverAI : EnemyMover
 
         _currentTarget = _route[_currentIndexTarget].position;
 
+        SetDirectionToRotate();
+    }
+
+    private void SetDirectionToRotate()
+    {
         DirectionMove = transform.position.x > _currentTarget.x ? 0 : 1;
     }
 

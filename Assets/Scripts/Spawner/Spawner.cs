@@ -21,10 +21,10 @@ public class Spawner : MonoBehaviour
 
         while (true)
         {
-            if (transform.childCount == 0)
+            if (Container.childCount == 0)
             {
-                Spawn();
                 yield return wait;
+                Spawn();
             }
 
             yield return null;

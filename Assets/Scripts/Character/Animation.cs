@@ -7,16 +7,8 @@ public class Animation : MonoBehaviour
 
     private void Update()
     {
-        RotateToMove();
-        _character.GetAnimator().SetBool(AnimatorData.Params.IsMove, _character.Mover.IsStanding == false);
+        _character.transform.rotation = _character.Mover.DirectionMove > 0 ? Quaternion.identity : Quaternion.Euler(_rotate);
         _character.GetAnimator().SetBool(AnimatorData.Params.IsJump, _character.Mover.SurfaceType != SurfaceType.Ground);
-    }
-
-    private void RotateToMove()
-    {
-        if (_character.Mover.DirectionMove > 0)
-            _character.transform.rotation = Quaternion.identity;
-        else
-            _character.transform.rotation = Quaternion.Euler(_rotate);
+        _character.GetAnimator().SetBool(AnimatorData.Params.IsMove, _character.Mover.IsStanding == false);
     }
 }
