@@ -49,7 +49,7 @@ public class Player : Character
 
     protected override void Death()
     {
-        if (Health <= 0)
+        if (CurrentHealth <= 0)
         {
             OnDeath?.Invoke();
             Destroy(gameObject);
@@ -58,6 +58,11 @@ public class Player : Character
 
     private void RestoreHealth(float countHealth)
     {
-        Health += countHealth;
+        CurrentHealth += countHealth;
+
+        if (CurrentHealth > MaxHealth)
+            CurrentHealth = MaxHealth;
+
+        OnChangeHealth();  
     }
 }

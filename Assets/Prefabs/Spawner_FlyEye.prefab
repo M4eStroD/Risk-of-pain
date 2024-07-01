@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 2319791909735038189}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 2.46, y: 0.1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -79,7 +79,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Container: {fileID: 6665886444888597685}
   _timeSpawn: 10
-  _enemy: {fileID: 7145627625320534618, guid: 2e2c0b78f3796c44497f4ab6395766ca, type: 3}
+  _enemy: {fileID: 8522640485701921266, guid: a33320f0958794546960cd2daaae9260, type: 3}
   _pointsPatrol:
   - {fileID: 6765242038775779553}
   - {fileID: 6995577300400148134}
@@ -141,7 +141,7 @@ Transform:
   m_GameObject: {fileID: 8082640938654217824}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -3.08, y: 0.07, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

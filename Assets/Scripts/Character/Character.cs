@@ -5,31 +5,38 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class Character : MonoBehaviour
 {
+    public event Action HealthChanged;
+
     protected private Rigidbody2D Rigidbody;
     protected private Animator Animator;
 
-    [SerializeField] protected float Health = 100f;
+    protected float CurrentHealth;
+
+    [SerializeField] protected float MaxHealth = 100f;
     [SerializeField] protected float Damage = 15f;
     [SerializeField] protected float AttackSpeed = 2f;
 
     public Mover Mover { get; protected set; }
 
-    private event Action OnTakeDamage;
+    public float MaxHealthEntity => MaxHealth;
+    public float CurrentHealthEntity => CurrentHealth;
 
     private void Start()
     {
+        CurrentHealth = MaxHealth;
+
         Rigidbody = GetComponent<Rigidbody2D>();
         Animator = GetComponent<Animator>();
     }
 
     protected virtual void OnEnable()
     {
-        OnTakeDamage += Death;
+        HealthChanged += Death;
     }
 
     protected virtual void OnDisable()
     {
-        OnTakeDamage -= Death;
+        HealthChanged -= Death;
     }
 
     protected virtual void Attack(Character target)
@@ -39,8 +46,13 @@ public class Character : MonoBehaviour
 
     protected virtual void Death()
     {
-        if (Health <= 0)
+        if (CurrentHealth <= 0)
             Destroy(gameObject);
+    }
+
+    protected void OnChangeHealth()
+    {
+        HealthChanged?.Invoke();
     }
 
     public Animator GetAnimator()
@@ -50,8 +62,8 @@ public class Character : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
-        Health -= damage;
+        CurrentHealth -= damage;
 
-        OnTakeDamage?.Invoke();
+        HealthChanged?.Invoke();
     }
 }

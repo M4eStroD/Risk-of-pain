@@ -2,12 +2,12 @@ using UnityEngine;
 
 public class CameraFollower : MonoBehaviour
 {
-    [SerializeField] private Transform _transform;
+    [SerializeField] protected Transform _target;
 
-    [SerializeField] private float _speed;
-    [SerializeField] private float _offset;
+    [SerializeField] protected float _speed;
+    [SerializeField] protected float _offset;
 
-    private Vector3 _position;
+    protected Vector3 _position;
 
     private void Awake()
     {
@@ -19,20 +19,20 @@ public class CameraFollower : MonoBehaviour
         GetCoordinates();
     }
 
-    private void LateUpdate()
+    protected virtual void LateUpdate()
     {
         GetCoordinates();
 
         transform.position = Vector3.Lerp(transform.position, _position, _speed * Time.deltaTime);
     }
 
-    private void GetCoordinates()
+    protected virtual void GetCoordinates()
     {
         _position = new Vector3()
         {
-            x = _transform.position.x,
-            y = _transform.position.y,
-            z = _transform.position.z - _offset,
+            x = _target.position.x,
+            y = _target.position.y,
+            z = _target.position.z - _offset,
         };
     }
 }
