@@ -56,7 +56,7 @@ public class Player : Character
         }
     }
 
-    private void RestoreHealth(float countHealth)
+    public void RestoreHealth(float countHealth)
     {
         CurrentHealth += countHealth;
 

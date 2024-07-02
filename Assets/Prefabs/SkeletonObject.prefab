@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6709179644700116323}
   - component: {fileID: 957989297642432858}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SkeletonObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -58,7 +58,7 @@ GameObject:
   - component: {fileID: 1418586896518413105}
   - component: {fileID: 3892925407010843680}
   - component: {fileID: 6346022876293704558}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: PlayerLocator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -145,7 +145,7 @@ GameObject:
   - component: {fileID: 8362069203624342556}
   - component: {fileID: 1152875886220267467}
   - component: {fileID: 3463413216168616498}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Skeleton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -397,6 +397,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2561965316060830694, guid: 1550fc05f7b0be24e96d531eb606ae9b, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4143307438122977890, guid: 1550fc05f7b0be24e96d531eb606ae9b, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -408,6 +412,10 @@ PrefabInstance:
     - target: {fileID: 4493148842825027520, guid: 1550fc05f7b0be24e96d531eb606ae9b, type: 3}
       propertyPath: m_Name
       value: Skeleton
+      objectReference: {fileID: 0}
+    - target: {fileID: 4493148842825027520, guid: 1550fc05f7b0be24e96d531eb606ae9b, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
@@ -459,6 +467,10 @@ PrefabInstance:
       propertyPath: _entity
       value: 
       objectReference: {fileID: 3463413216168616498}
+    - target: {fileID: 3235570005476699268, guid: 61176683806cd694a8659fb5a7e03bb5, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 3360741599559916890, guid: 61176683806cd694a8659fb5a7e03bb5, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -543,9 +555,25 @@ PrefabInstance:
       propertyPath: m_Name
       value: HealthBar
       objectReference: {fileID: 0}
+    - target: {fileID: 3972067201281314526, guid: 61176683806cd694a8659fb5a7e03bb5, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4363113715010233691, guid: 61176683806cd694a8659fb5a7e03bb5, type: 3}
       propertyPath: m_PresetInfoIsWorld
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6845018002815788095, guid: 61176683806cd694a8659fb5a7e03bb5, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6894430622095468821, guid: 61176683806cd694a8659fb5a7e03bb5, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8783607208492521520, guid: 61176683806cd694a8659fb5a7e03bb5, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
