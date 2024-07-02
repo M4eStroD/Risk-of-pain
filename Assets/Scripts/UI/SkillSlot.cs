@@ -20,40 +20,33 @@ public class SkillSlot : MonoBehaviour
         _activeSkill.SkillActivated -= ChangeBar;
     }
 
-    private void ChangeBar()
+    private void ChangeBar(bool isActive)
     {
-        StartCoroutine(ChangeDurationBar());
+        StartCoroutine(Timer(isActive));
     }
 
-    private IEnumerator ChangeDurationBar()
+    private IEnumerator Timer(bool isActive)
     {
-        while (_activeSkill.CurrentDurationTime != _activeSkill.DurationTime)
+        float endPoint = 0;
+
+        if (isActive)
+            endPoint = _activeSkill.DurationTime;
+        else
+            endPoint = _activeSkill.RecoveryTime;
+
+        while (_activeSkill.CurrentTime <= endPoint)
         {
-            _slider.value = GetPercentDurationBar() / _reductionFactor;
+            if (isActive)
+                _slider.value = GetPercentBar(endPoint) / _reductionFactor;
+            else
+                _slider.value = _slider.maxValue - (GetPercentBar(endPoint) / _reductionFactor);
 
             yield return null;
         }
-
-        StartCoroutine(ChangeRecoveryBar());
     }
 
-    private IEnumerator ChangeRecoveryBar()
+    private float GetPercentBar(float maxTime)
     {
-        while (_activeSkill.CurrentRecoveryTime >= 0)
-        {
-            _slider.value = GetPercentRecoveryBar() / _reductionFactor;
-
-            yield return null;
-        }
-    }
-
-    private float GetPercentDurationBar()
-    {
-        return _activeSkill.CurrentDurationTime * _hundredPercent / _activeSkill.DurationTime;
-    }
-
-    private float GetPercentRecoveryBar()
-    {
-        return _activeSkill.CurrentRecoveryTime * _hundredPercent / _activeSkill.RecoveryTime;
+        return _activeSkill.CurrentTime * _hundredPercent / maxTime;
     }
 }
