@@ -33,7 +33,7 @@ public class Player : Character
             _wallet.AddMoney(coin.CountCoin);
             coin.Collect();
         }
-        else if (collision.TryGetComponent(out HealthBonus healthBonus))
+        else if (collision.TryGetComponent(out Heart healthBonus))
         {
             RestoreHealth(healthBonus.CountHealth);
             healthBonus.Collect();

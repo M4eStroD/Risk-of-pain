@@ -12,15 +12,15 @@ public class HealthBar : MonoBehaviour
 
     private void OnEnable()
     {
-        _entity.HealthChanged += ChangeHealthBar;
+        _entity.HealthChanged += ChangeBar;
     }
 
     private void OnDisable()
     {
-        _entity.HealthChanged -= ChangeHealthBar;
+        _entity.HealthChanged -= ChangeBar;
     }
 
-    protected virtual void ChangeHealthBar()
+    protected virtual void ChangeBar()
     {
         float reductionFactor = 100;
 

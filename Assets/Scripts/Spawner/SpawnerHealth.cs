@@ -2,9 +2,9 @@ using UnityEngine;
 
 public class SpawnerHealth : Spawner
 {
-    [SerializeField] private HealthBonus Health;
+    [SerializeField] private Heart Health;
 
-    private HealthBonus _currentHealthBonus;
+    private Heart _currentHealthBonus;
 
     protected override void Spawn()
     {

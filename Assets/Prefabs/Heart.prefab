@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 4718659249188848640}
   - component: {fileID: 7073813469414369257}
   - component: {fileID: 743298167369748400}
-  - component: {fileID: 3474286378871554031}
+  - component: {fileID: 2428978523849942836}
   m_Layer: 0
-  m_Name: HealthBonus
+  m_Name: Heart
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -143,7 +143,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &3474286378871554031
+--- !u!114 &2428978523849942836
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -152,7 +152,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6239425913704756716}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f1a397bd1ef4d2d429ef2f5cca11ae3d, type: 3}
+  m_Script: {fileID: 11500000, guid: 63de5e3c4b612fa4e9e2c31f33238c80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _countHealth: 15

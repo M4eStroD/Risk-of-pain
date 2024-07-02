@@ -1,22 +1,22 @@
 using System.Collections;
 using UnityEngine;
 
-public class HealthBar_Smooth : HealthBar
+public class HealthBarSmooth : HealthBar
 {
     private float _stepHealthChange = 0.2f;
     private float _currentStep = 0;
 
     private bool _isActive = false;
 
-    protected override void ChangeHealthBar()
+    protected override void ChangeBar()
     {
         _currentStep += _stepHealthChange;
 
         if (_isActive == false)
-            StartCoroutine(HealthBar());
+            StartCoroutine(TimerChange());
     }
 
-    private IEnumerator HealthBar()
+    private IEnumerator TimerChange()
     {
         float reductionFactor = 100;
         _isActive = true;

@@ -1,16 +1,8 @@
-using System;
 using UnityEngine;
 
-public class Coin : MonoBehaviour
+public class Coin : Bonus
 {
     [SerializeField] private int _cointCoin = 1;
 
-    public event Action PickUp;
-
     public int CountCoin => _cointCoin;
-
-    public void Collect()
-    {
-        PickUp?.Invoke();
-    }
 }
