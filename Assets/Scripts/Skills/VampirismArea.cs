@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class VampirismArea : MonoBehaviour
@@ -19,12 +20,8 @@ public class VampirismArea : MonoBehaviour
             _enemies.Remove(enemy);
     }
 
-    public List<Enemy> GetEnemies()
+    public IEnumerable<Enemy> GetEnemies()
     {
-        List<Enemy> enemies = new List<Enemy>(_enemies.Count);
-        
-        _enemies.ForEach((item) => enemies.Add(item));
-
-        return enemies;
+        return _enemies.Select(enemy => enemy);
     }
 }

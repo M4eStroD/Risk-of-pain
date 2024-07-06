@@ -34,7 +34,7 @@ public class SkillSlot : MonoBehaviour
         else
             endPoint = _activeSkill.RecoveryTime;
 
-        while (_activeSkill.CurrentTime <= endPoint)
+        while (_activeSkill.CurrentSkillTime <= endPoint)
         {
             if (isActive)
                 _slider.value = GetPercentBar(endPoint) / _reductionFactor;
@@ -47,6 +47,6 @@ public class SkillSlot : MonoBehaviour
 
     private float GetPercentBar(float maxTime)
     {
-        return _activeSkill.CurrentTime * _hundredPercent / maxTime;
+        return _activeSkill.CurrentSkillTime * _hundredPercent / maxTime;
     }
 }

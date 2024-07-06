@@ -144,7 +144,7 @@ GameObject:
   - component: {fileID: 3360331598058995441}
   - component: {fileID: 8362069203624342556}
   - component: {fileID: 1152875886220267467}
-  - component: {fileID: 3463413216168616498}
+  - component: {fileID: 461584002595044839}
   m_Layer: 8
   m_Name: Skeleton
   m_TagString: Untagged
@@ -330,25 +330,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fadbbc5a57b345944aefc8c6a6c91537, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _character: {fileID: 3463413216168616498}
+  _character: {fileID: 3360331598058995441}
   _rotate: {x: 0, y: 180, z: 0}
---- !u!114 &3463413216168616498
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: -2638969059936770019, guid: 1550fc05f7b0be24e96d531eb606ae9b, type: 3}
-  m_PrefabInstance: {fileID: 85969741260417181}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3549062238669968336}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 816aa397ad324f14c94ba278d21ab6b3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MaxHealth: 100
-  Damage: 15
-  AttackSpeed: 2
-  _mover: {fileID: 8362069203624342556}
-  _distanceAttack: 2
 --- !u!1001 &85969741260417181
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -417,7 +400,8 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 8
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 0}
     m_RemovedGameObjects:
     - {fileID: 0}
     - {fileID: 0}
@@ -429,6 +413,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4493148842825027520, guid: 1550fc05f7b0be24e96d531eb606ae9b, type: 3}
       insertIndex: 5
       addedObject: {fileID: 3360331598058995441}
+    - targetCorrespondingSourceObject: {fileID: 4493148842825027520, guid: 1550fc05f7b0be24e96d531eb606ae9b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 461584002595044839}
   m_SourcePrefab: {fileID: 100100000, guid: 1550fc05f7b0be24e96d531eb606ae9b, type: 3}
 --- !u!114 &3360331598058995441
 MonoBehaviour:
@@ -442,11 +429,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 816aa397ad324f14c94ba278d21ab6b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxHealth: 100
+  _health: {fileID: 461584002595044839}
   Damage: 15
   AttackSpeed: 2
   _mover: {fileID: 8362069203624342556}
   _distanceAttack: 1
+--- !u!114 &461584002595044839
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3549062238669968336}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a71486ca2f7c69a4bab4430e555fd0e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _maxHealth: 100
 --- !u!1001 &5738652691625403383
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -463,10 +463,6 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1969885908692700396, guid: 61176683806cd694a8659fb5a7e03bb5, type: 3}
-      propertyPath: _entity
-      value: 
-      objectReference: {fileID: 3463413216168616498}
     - target: {fileID: 3235570005476699268, guid: 61176683806cd694a8659fb5a7e03bb5, type: 3}
       propertyPath: m_Layer
       value: 8

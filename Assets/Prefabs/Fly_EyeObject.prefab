@@ -63,6 +63,7 @@ GameObject:
   - component: {fileID: 2531479707533484092}
   - component: {fileID: 5544247317784965588}
   - component: {fileID: 4694889961065022919}
+  - component: {fileID: 7849997554888061479}
   m_Layer: 8
   m_Name: Fly_Eye
   m_TagString: Untagged
@@ -398,6 +399,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1148717944096183220, guid: 2e2c0b78f3796c44497f4ab6395766ca, type: 3}
       insertIndex: 5
       addedObject: {fileID: 2531479707533484092}
+    - targetCorrespondingSourceObject: {fileID: 1148717944096183220, guid: 2e2c0b78f3796c44497f4ab6395766ca, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7849997554888061479}
   m_SourcePrefab: {fileID: 100100000, guid: 2e2c0b78f3796c44497f4ab6395766ca, type: 3}
 --- !u!114 &2531479707533484092
 MonoBehaviour:
@@ -411,11 +415,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 816aa397ad324f14c94ba278d21ab6b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxHealth: 100
+  _health: {fileID: 7849997554888061479}
   Damage: 15
   AttackSpeed: 2
   _mover: {fileID: 5544247317784965588}
   _distanceAttack: 1
+--- !u!114 &7849997554888061479
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4615283976534115437}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a71486ca2f7c69a4bab4430e555fd0e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _maxHealth: 100
 --- !u!1001 &7310087868534043039
 PrefabInstance:
   m_ObjectHideFlags: 0

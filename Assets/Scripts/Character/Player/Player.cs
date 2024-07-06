@@ -3,9 +3,11 @@ using UnityEngine;
 
 public class Player : Character
 {
+    [SerializeField] private InputReader _inputReader;
     [SerializeField] private Wallet _wallet;
     [SerializeField] private PlayerMover _mover;
     [SerializeField] private Weapon _weapon;
+    [SerializeField] private SurfaceLocator _currentSurface;
 
     public event Action OnDeath;
 
@@ -24,6 +26,17 @@ public class Player : Character
     {
         base.OnDisable();
         _weapon.OnHit -= Attack;
+    }
+
+    private void FixedUpdate()
+    {
+        if (_inputReader.Direction != 0)
+            _mover.Run(_inputReader.Direction);
+        else if (_currentSurface.CurrentSurface != SurfaceType.None)
+            _mover.StopSliding();
+
+        if (_inputReader.GetIsJump() && _currentSurface.CurrentSurface != SurfaceType.None)
+            _mover.Jump();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -49,7 +62,7 @@ public class Player : Character
 
     protected override void Death()
     {
-        if (CurrentHealth <= 0)
+        if (_health.CurrentHealth <= 0)
         {
             OnDeath?.Invoke();
             Destroy(gameObject);
@@ -58,10 +71,7 @@ public class Player : Character
 
     public void RestoreHealth(float countHealth)
     {
-        CurrentHealth += countHealth;
-
-        if (CurrentHealth > MaxHealth)
-            CurrentHealth = MaxHealth;
+        _health.Increase(countHealth);
 
         OnChangeHealth();  
     }

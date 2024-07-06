@@ -13,8 +13,12 @@ public class Vampirism : ActiveSkill
 
         foreach (var enemy in _area.GetEnemies())
         {
+            if (enemy.CurrentHealthEntity < _damage)
+                player.RestoreHealth(_heal - enemy.CurrentHealthEntity);
+            else
+                player.RestoreHealth(_heal);
+
             enemy.TakeDamage(_damage);
-            player.RestoreHealth(_heal);
         }
     }
 }
