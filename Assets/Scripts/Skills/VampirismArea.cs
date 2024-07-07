@@ -20,8 +20,22 @@ public class VampirismArea : MonoBehaviour
             _enemies.Remove(enemy);
     }
 
-    public IEnumerable<Enemy> GetEnemies()
+    public bool TryGetNearestEnemies(Vector3 position, out Enemy target)
     {
-        return _enemies.Select(enemy => enemy);
+        target = null;
+
+        if (_enemies.Count == 0)
+            return false;
+
+        target = _enemies[0];
+
+        foreach (Enemy enemy in _enemies)
+        {
+            if (Vector3.Distance(enemy.transform.position, position) < 
+                Vector3.Distance(target.transform.position, position))
+                target = enemy;
+        }
+
+        return true;
     }
 }

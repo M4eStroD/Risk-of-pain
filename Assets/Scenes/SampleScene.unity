@@ -4237,6 +4237,7 @@ MonoBehaviour:
   _damage: 0.4
   _heal: 0.4
   _area: {fileID: 1247437932}
+  _player: {fileID: 2138138459}
 --- !u!1 &660660121
 GameObject:
   m_ObjectHideFlags: 0
@@ -17835,7 +17836,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cd93792a35deb94fb343157a61268b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 2138138459}
   _skill: {fileID: 623060527}
 --- !u!114 &2138138467
 MonoBehaviour:

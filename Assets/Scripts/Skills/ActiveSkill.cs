@@ -12,8 +12,6 @@ public class ActiveSkill : MonoBehaviour
 
     protected float _currentSkillTime = 0f;
 
-    protected Character Target;
-
     public event Action<bool> SkillActivated;
 
     public float CurrentSkillTime => _currentSkillTime;
@@ -21,11 +19,10 @@ public class ActiveSkill : MonoBehaviour
     public float DurationTime => _durationTime;
     public float RecoveryTime => _recoveryTime;
 
-    public virtual bool TryUse(Character target)
+    public virtual bool TryUse()
     {
         if (IsActive == false && _currentSkillTime == 0)
         {
-            Target = target;
             IsActive = true;
 
             _currentSkillTime = 0;

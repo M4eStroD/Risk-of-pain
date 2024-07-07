@@ -7,18 +7,18 @@ public class Vampirism : ActiveSkill
 
     [SerializeField] private VampirismArea _area;
 
+    [SerializeField] private Player _player;
+
     protected override void ApplyEffects()
     {
-        Player player = Target as Player;
+        if (_area.TryGetNearestEnemies(_player.transform.position, out Enemy target) == false)
+            return;
 
-        foreach (var enemy in _area.GetEnemies())
-        {
-            if (enemy.CurrentHealthEntity < _damage)
-                player.RestoreHealth(_heal - enemy.CurrentHealthEntity);
-            else
-                player.RestoreHealth(_heal);
+        if (target.CurrentHealthEntity < _damage)
+            _player.RestoreHealth(_heal - target.CurrentHealthEntity);
+        else
+            _player.RestoreHealth(_heal);
 
-            enemy.TakeDamage(_damage);
-        }
+        target.TakeDamage(_damage);
     }
 }
